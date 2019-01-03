@@ -1,0 +1,19 @@
+version: '2'
+services:
+  redis:
+    image: redis
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - /redis.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - "6379:6379"
+
+  web:
+    build: ./src/webapp
+    working_dir: /var/www/app
+    ports:
+     - "5000:5000"
+    volumes:
+     - ./server:/var/www/app:rw
+    depends_on:
+     - redis
