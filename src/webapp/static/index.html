@@ -11,7 +11,7 @@
 
 <script>
     function subscribe() {
-        var source = new EventSource('/stream');
+        var source = new EventSource('/therm/stream');
         var tempDiv = document.getElementById('temp');
 
         source.onmessage = function(e) {

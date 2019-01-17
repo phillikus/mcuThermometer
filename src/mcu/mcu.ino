@@ -44,7 +44,7 @@ void loop() {
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
  
-    http.begin("http://192.168.0.35:5000/push");
+    http.begin("http://192.168.0.35:5000/therm/push");
     http.addHeader("Content-Type", "text/plain");
 
     Serial.println("works");
